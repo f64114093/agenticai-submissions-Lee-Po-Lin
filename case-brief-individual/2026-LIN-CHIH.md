@@ -44,21 +44,21 @@ A technician could:
 
 - Analyze using the LLM to suggest analysis methods and generate HRV results.
 
-- Recommend a result for the user to manually judge for credibility.
+- Recommend a result for the user to manually judge for credibility (based on visible HRV consistency and obvious RR interval anomalies).
 
-- Learn by re-inputting user info if the LLM forgets the specific context.
+- Learn by re-inputting user info if the LLM forgets the specific context,with no systematic tracking of HRV stability or error rates.
 
 ## Proposed Approach (Agentic)
 
 An AI agent system could:
 
-- Collect ECG signal segments and Person IDs through the Ingestion Module.
+- Collect ECG signal segments and Person IDs through the Ingestion Module,enabling per-subject tracking of HRV statistics across segments.
 
-- Analyze by querying historical heart rate baselines and choosing adaptive filtering strategies.
+- Analyze by querying historical heart rate baselines and choosing adaptive filtering strategies,with each strategy evaluated using internal quality metrics.
 
-- Recommend HRV metrics (SDNN, RMSSD) only if they pass the internal physiological assessment.
+- Recommend HRV metrics (SDNN, RMSSD) only if they pass internal physiological assessment. (e.g., low invalid RR ratio and stable HRV across retries).
 
-- Learn by updating individual memory with successful results and logging failure reasons for optimization.
+- Learn by updating individual memory with successful results and logging failure reasons for optimization,supporting longitudinal evaluation of HRV stability and error reduction.
 
 
 ## Expected Outcomes
